@@ -1,4 +1,4 @@
-module aq_mipi_rx_ultrascaleplus
+module aq_mipi_csi2rx_ultrascaleplus
 (
   input         RST_N,
 
