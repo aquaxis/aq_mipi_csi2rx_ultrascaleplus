@@ -1,12 +1,12 @@
 module csi_rx_clk_phy(
-  input RST_N,
+  input   RST_N,
 
-  input MIPI_CLK_P,
-  input MIPI_CLK_N,
+  input   MIPI_CLK_P,
+  input   MIPI_CLK_N,
 
-  output CLK_BIT,
-  output CLK_DIV,
-  output CLK_BYTE
+  output  CLK_BIT,
+  output  CLK_DIV,
+  output  CLK_BYTE
 );
 
 wire clk_bit_pre;
@@ -27,25 +27,25 @@ u_IBUFDS_CLK(
 */
 
 IBUFDS_DPHY #(
-  .DIFF_TERM("TRUE"),
-  .IOSTANDARD("MIPI_DPHY_DCI"),
-  .SIM_DEVICE("ULTRASCALE_PLUS")
+  .DIFF_TERM    ( "TRUE"            ),
+  .IOSTANDARD   ( "MIPI_DPHY_DCI"   ),
+  .SIM_DEVICE   ( "ULTRASCALE_PLUS" )
 )
 u_IBUFDS_DPHY(
-  .I(MIPI_CLK_P),
-  .IB(MIPI_CLK_N),
-  .HSRX_DISABLE(1'b0),
-  .LPRX_DISABLE(1'b1),
-  .HSRX_O(clk_bit_pre),
-  .LPRX_O_N(),
-  .LPRX_O_P()
+  .I            ( MIPI_CLK_P  ),
+  .IB           ( MIPI_CLK_N  ),
+  .HSRX_DISABLE ( 1'b0        ),
+  .LPRX_DISABLE ( 1'b1        ),
+  .HSRX_O       ( clk_bit_pre ),
+  .LPRX_O_N     (),
+  .LPRX_O_P     ()
 );
 
 BUFGCE u_BUFGCE_CLK
 (
-  .CE(1'b1),
-  .I(clk_bit_pre),
-  .O(CLK_BIT)
+  .CE ( 1'b1        ),
+  .I  ( clk_bit_pre ),
+  .O  ( CLK_BIT     )
 );
 /*
 BUFGCE_DIV #(
@@ -62,16 +62,16 @@ u_BUFGCE_DIV(
 );
 */
 BUFGCE_DIV #(
-  .BUFGCE_DIVIDE(4),
-  .CE_TYPE("SYNC"),
-  .HARDSYNC_CLR("FALSE")
+  .BUFGCE_DIVIDE  ( 4       ),
+  .CE_TYPE        ( "SYNC"  ),
+  .HARDSYNC_CLR   ( "FALSE" )
 )
 u_BUFGCE_DIV2(
-  .O(CLK_BYTE),
+  .O              ( CLK_BYTE    ),
 
-  .CE(1'b1),
-  .CLR(~RST_N),
-  .I(clk_bit_pre)
+  .CE             ( 1'b1        ),
+  .CLR            ( ~RST_N      ),
+  .I              ( clk_bit_pre )
 );
 
 /*

@@ -79,7 +79,7 @@
       <spirit:parameters>
         <spirit:parameter>
           <spirit:name>POLARITY</spirit:name>
-          <spirit:value spirit:id="BUSIFPARAM_VALUE.RST_N.POLARITY" spirit:choiceRef="choice_list_9d8b0d81">ACTIVE_LOW</spirit:value>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.RST_N.POLARITY" spirit:choiceRef="choice_list_74b5137e">ACTIVE_LOW</spirit:value>
         </spirit:parameter>
       </spirit:parameters>
     </spirit:busInterface>
@@ -152,7 +152,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>2652c6c2</spirit:value>
+            <spirit:value>c1d4b49e</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -168,7 +168,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>2652c6c2</spirit:value>
+            <spirit:value>c1d4b49e</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -655,7 +655,7 @@
   </spirit:model>
   <spirit:choices>
     <spirit:choice>
-      <spirit:name>choice_list_9d8b0d81</spirit:name>
+      <spirit:name>choice_list_74b5137e</spirit:name>
       <spirit:enumeration>ACTIVE_HIGH</spirit:enumeration>
       <spirit:enumeration>ACTIVE_LOW</spirit:enumeration>
     </spirit:choice>
@@ -682,7 +682,7 @@
       <spirit:file>
         <spirit:name>src/aq_mipi_rx_ultrascaleplus.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_19c79ec9</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_5979cc95</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -729,6 +729,12 @@
     <xilinx:coreExtensions>
       <xilinx:supportedFamilies>
         <xilinx:family xilinx:lifeCycle="Production">virtex7</xilinx:family>
+        <xilinx:family xilinx:lifeCycle="Production">qvirtex7</xilinx:family>
+        <xilinx:family xilinx:lifeCycle="Production">kintex7</xilinx:family>
+        <xilinx:family xilinx:lifeCycle="Production">kintex7l</xilinx:family>
+        <xilinx:family xilinx:lifeCycle="Production">qkintex7</xilinx:family>
+        <xilinx:family xilinx:lifeCycle="Production">qkintex7l</xilinx:family>
+        <xilinx:family xilinx:lifeCycle="Production">akintex7</xilinx:family>
         <xilinx:family xilinx:lifeCycle="Production">artix7</xilinx:family>
         <xilinx:family xilinx:lifeCycle="Production">artix7l</xilinx:family>
         <xilinx:family xilinx:lifeCycle="Production">aartix7</xilinx:family>
@@ -738,8 +744,12 @@
         <xilinx:family xilinx:lifeCycle="Production">azynq</xilinx:family>
         <xilinx:family xilinx:lifeCycle="Production">spartan7</xilinx:family>
         <xilinx:family xilinx:lifeCycle="Production">aspartan7</xilinx:family>
-        <xilinx:family xilinx:lifeCycle="Production">virtexuplus</xilinx:family>
+        <xilinx:family xilinx:lifeCycle="Production">virtexu</xilinx:family>
         <xilinx:family xilinx:lifeCycle="Production">zynquplus</xilinx:family>
+        <xilinx:family xilinx:lifeCycle="Production">virtexuplus</xilinx:family>
+        <xilinx:family xilinx:lifeCycle="Production">virtexuplusHBM</xilinx:family>
+        <xilinx:family xilinx:lifeCycle="Production">virtexuplus58g</xilinx:family>
+        <xilinx:family xilinx:lifeCycle="Production">kintexuplus</xilinx:family>
         <xilinx:family xilinx:lifeCycle="Production">kintexu</xilinx:family>
       </xilinx:supportedFamilies>
       <xilinx:taxonomies>
@@ -747,38 +757,20 @@
       </xilinx:taxonomies>
       <xilinx:displayName>aq_mipi_rx_ultrascaleplus_v1_0</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
-      <xilinx:coreRevision>3</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2019-03-28T16:25:09Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>2</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2019-11-26T07:34:39Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@241075db_ARCHIVE_LOCATION">/home/hidemi/workspace/ultra96_stecame/IP/aq_mipi_csi2rx_ultrascaleplus_v1</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@51e331f9_ARCHIVE_LOCATION">/home/hidemi/workspace/ultra96_stecame/IP/aq_mipi_csi2rx_ultrascaleplus_v1</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@2470f7cd_ARCHIVE_LOCATION">/home/hidemi/workspace/ultra96_stecame/IP/aq_mipi_csi2rx_ultrascaleplus_v1</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@55f2a72c_ARCHIVE_LOCATION">/home/hidemi/workspace/ultra96_stecame/IP/aq_mipi_csi2rx_ultrascaleplus_v1</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@6bebd07d_ARCHIVE_LOCATION">/home/hidemi/workspace/ultra96_stecame/IP/aq_mipi_csi2rx_ultrascaleplus_v1</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@2dd26d8c_ARCHIVE_LOCATION">/home/hidemi/workspace/ultra96_stecame/IP/aq_mipi_csi2rx_ultrascaleplus_v1</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@7002bd52_ARCHIVE_LOCATION">/home/hidemi/workspace/ultra96_stecame/IP/aq_mipi_csi2rx_ultrascaleplus_v1</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@5a4dd70d_ARCHIVE_LOCATION">/home/hidemi/workspace/ultra96_stecame/IP/aq_mipi_csi2rx_ultrascaleplus_v1</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@2c3293d4_ARCHIVE_LOCATION">/home/hidemi/workspace/ultra96_stecame/IP/aq_mipi_csi2rx_ultrascaleplus_v1</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@4b361359_ARCHIVE_LOCATION">/home/hidemi/workspace/ultra96_stecame/IP/aq_mipi_csi2rx_ultrascaleplus_v1</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@58a3a4d4_ARCHIVE_LOCATION">/home/hidemi/workspace/ultra96_stecame/IP/aq_mipi_csi2rx_ultrascaleplus_v1</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@77ea3165_ARCHIVE_LOCATION">/home/hidemi/workspace/ultra96_stecame/IP/aq_mipi_csi2rx_ultrascaleplus_v1</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@1d9a55a3_ARCHIVE_LOCATION">/home/hidemi/workspace/ultra96_stecame/IP/aq_mipi_csi2rx_ultrascaleplus_v1</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@5b6206f1_ARCHIVE_LOCATION">/home/hidemi/workspace/ultra96_stecame/IP/aq_mipi_csi2rx_ultrascaleplus_v1</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@15edabd5_ARCHIVE_LOCATION">/home/hidemi/workspace/ultra96_stecame/IP/aq_mipi_csi2rx_ultrascaleplus_v1</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@413df7dd_ARCHIVE_LOCATION">/home/hidemi/workspace/ultra96_stecame/IP/aq_mipi_csi2rx_ultrascaleplus_v1</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@5f2c1ab9_ARCHIVE_LOCATION">/home/hidemi/workspace/ultra96_stecame/IP/aq_mipi_csi2rx_ultrascaleplus_v1</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@4973bd8_ARCHIVE_LOCATION">/home/hidemi/workspace/ultra96_stecame/IP/aq_mipi_csi2rx_ultrascaleplus_v1</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@67ff8ccf_ARCHIVE_LOCATION">/home/hidemi/workspace/ultra96_stecame/IP/aq_mipi_csi2rx_ultrascaleplus_v1</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@2a8c7668_ARCHIVE_LOCATION">/home/hidemi/workspace/ultra96_stecame/IP/aq_mipi_csi2rx_ultrascaleplus_v1</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@7de45914_ARCHIVE_LOCATION">/home/hidemi/workspace/ultra96_stecame/IP/aq_mipi_csi2rx_ultrascaleplus_v1</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@7c133557_ARCHIVE_LOCATION">/home/hidemi/workspace/ultra96_stecame/IP/aq_mipi_csi2rx_ultrascaleplus_v1</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@66b853ec_ARCHIVE_LOCATION">/home/hidemi/workspace/ultra96_stecame/IP/aq_mipi_csi2rx_ultrascaleplus_v1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@364209bc_ARCHIVE_LOCATION">/home/hidemi/workspace/IPCORE/aq_mipi_csi2rx_ultrascaleplus</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@508fbb45_ARCHIVE_LOCATION">/home/hidemi/workspace/IPCORE/aq_mipi_csi2rx_ultrascaleplus</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@255bf2a9_ARCHIVE_LOCATION">/home/hidemi/workspace/IPCORE/aq_mipi_csi2rx_ultrascaleplus</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@57f23a6a_ARCHIVE_LOCATION">/home/hidemi/workspace/IPCORE/aq_mipi_csi2rx_ultrascaleplus</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4e3f88b7_ARCHIVE_LOCATION">/home/hidemi/workspace/IPCORE/aq_mipi_csi2rx_ultrascaleplus</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
-      <xilinx:xilinxVersion>2018.3</xilinx:xilinxVersion>
-      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="f7090b14"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="ce73d452"/>
+      <xilinx:xilinxVersion>2019.2</xilinx:xilinxVersion>
+      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="5e217967"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="f0d0f00f"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="2880b92f"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="fc40ac09"/>
     </xilinx:packagingInfo>

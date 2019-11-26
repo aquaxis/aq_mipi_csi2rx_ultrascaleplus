@@ -100,8 +100,8 @@ always @(posedge CLK) begin
     reg_d0 <= reg_d0_pre;
     reg_d1 <= reg_d1_pre;
     if((det_d0_pre != 16'd0) && (det_d1_pre != 16'd0)) begin
-      det_d0 <= det_d0_pre;
-      det_d1 <= det_d1_pre;
+      det_d0  <= det_d0_pre;
+      det_d1  <= det_d1_pre;
       det_sot <= 1'b1;
     end else begin
       det_sot <= 1'b0;
@@ -122,12 +122,12 @@ always @(posedge CLK) begin
 end
 
 
-reg [15:0] align_d0, align_d1;
+reg [7:0] align_d0, align_d1;
 
 // Word align LANE0
 always @(posedge CLK) begin
   if(!RST_N) begin
-    align_d0[15:0] <= 16'd0;
+    align_d0[7:0] <= 8'd0;
   end else begin
     case(det_d0)
       16'h0001: align_d0[7:0] <= reg_d0_buf[15:8];
@@ -153,7 +153,7 @@ end
 // Word align LANE1
 always @(posedge CLK) begin
   if(!RST_N) begin
-    align_d1[15:0] <= 16'd0;
+    align_d1[7:0] <= 8'd0;
   end else begin
     case(det_d1)
       16'h0001: align_d1[7:0] <= reg_d1_buf[15:8];
@@ -182,10 +182,10 @@ reg [31:0] align_data;
 always @(posedge CLK) begin
   if(!RST_N) begin
     reg_sot_pre <= 1'b0;
-    align_data <= 32'd0;
+    align_data  <= 32'd0;
   end else begin
     reg_sot_pre <= det_sot;
-    align_data <= {align_d1[ 7:0], align_d0[ 7:0], align_data[31:16]};
+    align_data  <= {align_d1[ 7:0], align_d0[ 7:0], align_data[31:16]};
   end
 end
 
@@ -213,47 +213,47 @@ wire wire_length_valid;
 
 always @(posedge CLK) begin
   if(!RST_N) begin
-    reg_fsync <= 1'b0;
-    reg_fsync_end <= 1'b0;
-    data_ena <= 1'b0;
-    data_count <= 1'b0;
-    frame_length[15:0] <= 16'd0;
-    reg_valid <= 1'b0;
-    reg_data[31:0] <= 32'd0;
-    length[15:0] <= 16'd0;
-    line_count[15:0] <= 16'd0;
-    line[15:0] <= 16'd0;
-    reg_sot <= 1'b0;
+    reg_fsync           <= 1'b0;
+    reg_fsync_end       <= 1'b0;
+    data_ena            <= 1'b0;
+    data_count          <= 1'b0;
+    frame_length[15:0]  <= 16'd0;
+    reg_valid           <= 1'b0;
+    reg_data[31:0]      <= 32'd0;
+    length[15:0]        <= 16'd0;
+    line_count[15:0]    <= 16'd0;
+    line[15:0]          <= 16'd0;
+    reg_sot             <= 1'b0;
   end else begin
     if(reg_sot_pre) begin
-      reg_sot          <= 1'b1;
+      reg_sot           <= 1'b1;
     end else if(reg_fsync | reg_fsync_end | data_ena) begin
-      reg_sot          <= 1'b0;
+      reg_sot           <= 1'b0;
     end
     
     if(reg_sot) begin
       if((wire_data[7:0] == 8'b0000_0000) && (wire_data[31:24] == wire_ecc[7:0])) begin
         // Frame Start
-        reg_fsync        <= 1'b1;
-        data_ena         <= 1'b0;
-        data_count       <= 1'b0;
-        line_count[15:0] <= 16'd0;
-        reg_sot          <= 1'b0;
+        reg_fsync         <= 1'b1;
+        data_ena          <= 1'b0;
+        data_count        <= 1'b0;
+        line_count[15:0]  <= 16'd0;
+        reg_sot           <= 1'b0;
       end else if((wire_data[7:0] == 8'b0000_0001) && (wire_data[31:24] == wire_ecc[7:0])) begin
         // Frame End
-        reg_fsync_end <= 1'b1;
-        data_ena      <= 1'b0;
-        data_count    <= 1'b0;
-        line[15:0]    <= line_count[15:0];
-        reg_sot          <= 1'b0;
+        reg_fsync_end     <= 1'b1;
+        data_ena          <= 1'b0;
+        data_count        <= 1'b0;
+        line[15:0]        <= line_count[15:0];
+        reg_sot           <= 1'b0;
       end else if(((wire_data[7:0] == 8'b0010_1010) || (wire_data[7:0] == 8'b0010_1011)) && 
       (wire_data[31:24] == wire_ecc[7:0])) begin
         // Image Data Start
-        data_ena           <= 1'b1;
-        data_count         <= 1'b0;
-        frame_length[15:0] <= wire_data[23:8];
-        line_count[15:0]   <= line_count[15:0] + 16'd1;
-        reg_sot          <= 1'b0;
+        data_ena            <= 1'b1;
+        data_count          <= 1'b0;
+        frame_length[15:0]  <= wire_data[23:8];
+        line_count[15:0]    <= line_count[15:0] + 16'd1;
+        reg_sot             <= 1'b0;
       end 
     end else if((length[15:0] == 16'd0) && (wire_data[31:0] == 32'd0)) begin
       // Image Data End
@@ -283,8 +283,8 @@ always @(posedge CLK) begin
   end
 end
 
-assign wire_valid = ((data_ena == 1'b1) && data_count)?1'b1:1'b0;
-assign wire_length_valid = (length[15:0] > 16'd0)?1'b1:1'b0;
+assign wire_valid         = ((data_ena == 1'b1) && data_count)?1'b1:1'b0;
+assign wire_length_valid  = (length[15:0] > 16'd0)?1'b1:1'b0;
 
 assign FSYNC      = reg_fsync;
 assign VALID      = (wire_length_valid)?reg_valid:1'b0;
